@@ -54,10 +54,7 @@ function recreate {
    echo
    echo "Making libs"
    echo "iPhone"
-   phonedir=$(pwd)"/lib/iphone/"
-   mkdir -p $phonedir
 
-   phonelib=$phonedir$outname".a"
    paramstr=""
    if [ -f $namev7 ];
    then
@@ -71,6 +68,11 @@ function recreate {
 
    if [ $paramstr ];
    then
+      phonedir=$(pwd)"/lib/iphone/"
+      mkdir -p $phonedir
+
+      phonelib=$phonedir$outname".a"
+
       lipo -output $phonelib -create $paramstr
       lipo -detailed_info $phonelib
    else
@@ -78,10 +80,6 @@ function recreate {
    fi
 
    echo "iPhone Simulator"
-   simdir=$(pwd)"/lib/iphonesimulator/"
-   mkdir -p $simdir
-
-   simlib=$simdir$outname".a"
 
    paramstr=""
    if [ -f $name32 ];
@@ -96,10 +94,15 @@ function recreate {
 
    if [ $paramstr ];
    then
-   lipo -output $simlib -create $paramstr
-   lipo -detailed_info $simlib
+      simdir=$(pwd)"/lib/iphonesimulator/"
+      mkdir -p $simdir
+
+      simlib=$simdir$outname".a"
+
+      lipo -output $simlib -create $paramstr
+      lipo -detailed_info $simlib
    else
-   echo "No lib for iPhone Simulator"
+      echo "No lib for iPhone Simulator"
    fi
 
    echo "cleaning"
