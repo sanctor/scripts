@@ -44,6 +44,13 @@ function recreate {
    lipo -info $namev7
    fi
 
+    namev7s=$tmpdir$outname"_armv7s.a"
+    lipo $libname -thin armv7s -output $namev7s > /dev/null 2>&1
+    if [ -f $namev7s ];
+    then
+    lipo -info $namev7s
+    fi
+
    name64=$tmpdir$outname"_arm64.a"
    lipo $libname -thin arm64 -output $name64 > /dev/null 2>&1
    if [ -f $name64 ];
@@ -61,12 +68,17 @@ function recreate {
    paramstr=$namev7
    fi
 
-   if [ -f $name64 ];
+#    if [ -f $namev7s ];
+#    then
+#    paramstr=$paramstr" "$namev7s
+#    fi
+
+   if [ -f $namev7s ];
    then
    paramstr=$paramstr" "$name64
    fi
 
-   if [ $paramstr ];
+   if [ ! -z "$paramstr" ];
    then
       phonedir=$(pwd)"/lib/iphone/"
       mkdir -p $phonedir
@@ -92,7 +104,7 @@ function recreate {
    paramstr=$paramstr" "$namex64
    fi
 
-   if [ $paramstr ];
+   if [ ! -z "$paramstr" ];
    then
       simdir=$(pwd)"/lib/iphonesimulator/"
       mkdir -p $simdir
