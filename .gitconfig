@@ -1,8 +1,8 @@
 [user]
 	name = Serge Golubenko
-	email = Sergey.Golubenko@liga.ua
+	email = sanctor.green@gmail.com
 [core]
-	excludesfile = /Users/golubenkos/.gitignore_global
+	excludesfile = /Users/sanctor/.gitignore_global
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -20,6 +20,6 @@
   type = cat-file -t
   dump = cat-file -p
 [http]
-	proxy = http://proxy.liga.net:3128
+	#
 [push]
 	default = simple
