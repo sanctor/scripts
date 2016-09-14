@@ -9,9 +9,10 @@ export PATH=/Users/golubenkos/Qt5.1.0/5.1.0/clang_64/bin:$PATH
 export PATH=/Users/golubenkos/.gem/ruby/2.0.0/bin:$PATH
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
 
-export http_proxy=proxy.liga.net:3128
-export https_proxy=proxy.liga.net:3128
+#export http_proxy=proxy.liga.net:3128
+#export https_proxy=proxy.liga.net:3128
 #export socksProxyPort=3128
 #export socksProxyHost=proxy.liga.net
 
@@ -28,3 +29,11 @@ alias got='git '
 alias get='git '
 
 alias jenkins="nohup java -jar ~/jenkins.war --httpPort=8081 --ajp13Port=8010 > /tmp/jenkins.log 2>&1 &"
+
+alias clearorig='echo "Removing .orig files..."; find . -name '*.orig' -delete'
+
+alias edit="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+
+alias unzip6="/usr/local/Cellar/unzip/6.0/bin/unzip"
+
+alias brewski='brew update && brew upgrade --all && brew cleanup; brew doctor'
