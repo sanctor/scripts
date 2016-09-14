@@ -1,6 +1,7 @@
 [user]
 	name = Serge Golubenko
 	email = sanctor.green@gmail.com
+	signingkey = 90E76FD848A27C12
 [core]
 	excludesfile = /Users/sanctor/.gitignore_global
 	autocrlf = input
